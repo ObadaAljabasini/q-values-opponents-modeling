@@ -69,15 +69,15 @@ if __name__ == '__main__':
     env_width, env_height = 5, 5
     # train
 
-    player = Player(env_width, env_height, 2)
-    nb_episodes = 250
-    for z in [0, 1]:
-        train_player(env_width, env_height, player, z, nb_episodes)
-    player.save("models/player.pkl")
+    # player = Player(env_width, env_height, 2)
+    # nb_episodes = 250
+    # for z in [0, 1]:
+    #     train_player(env_width, env_height, player, z, nb_episodes)
+    # player.save("models/player.pkl")
 
     # test
 
-    # player = Player.load("models/player.pkl", env_width, env_height)
-    # nb_episodes = 100
-    # for z in [0, 1]:
-    #     test_player(env_width, env_height, player, z, nb_episodes)
+    player = Player.load("models/player.pkl", env_width, env_height)
+    nb_episodes = 100
+    for z in [0, 1]:
+        test_player(env_width, env_height, player, z)
