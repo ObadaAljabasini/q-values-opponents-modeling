@@ -10,7 +10,7 @@ class Opponent(Agent):
         self.z = z if z is not None else np.random.binomial(size=1, n=1, p=0.5)[0]
         self.target_position = np.array([0, 0]) if self.z == 0 else np.array([0, env_height - 1])
 
-    def take_action(self, observation, epsilon=0.1):
+    def take_action(self, state, epsilon=0.1):
         if self.current_position[0] > self.env_height // 2:
             action = self.action_mapping['Up']
         elif self.current_position[1] > 0 and self.target_position[1] == 0:

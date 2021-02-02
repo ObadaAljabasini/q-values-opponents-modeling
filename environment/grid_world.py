@@ -65,9 +65,10 @@ class GridWorldEnv(gym.Env):
 
     def generate_observation(self):
         h = hashlib.sha256()
-        h.update(str(self.grid.encode()).encode('utf8'))
-        obs = h.hexdigest()[:16]
-        return obs
+        image = self.grid.encode()
+        h.update(str(image).encode('utf8'))
+        hcode = h.hexdigest()[:16]
+        return image, hcode
 
     def is_allowed_position(self, position):
         x, y = position
